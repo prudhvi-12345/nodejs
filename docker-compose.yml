@@ -15,11 +15,13 @@ services:
        volumes:
           - db_data:/var/lib/mysql # volume path
        restart: always
+       env_file:
+          - ./.env
        environment:
-         MYSQL_ROOT_PASSWORD: admin
-         MYSQL_DATABASE: admin12
-         MYSQL_USER: admin
-         MYSQL_password: admin123
+        - MYSQL_ROOT_PASSWORD="${mysql_ROOT_PASSWORD}"
+        - MYSQL_DATABASE="${mysql_DATABASE}"
+        - MYSQL_USER="${mysql_USER}"
+        - MYSQL_PASSWORD="${mysql_PASSWORD}"
        ports:
           - "3306:3306"
        networks:
