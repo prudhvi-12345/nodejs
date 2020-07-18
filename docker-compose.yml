@@ -1,0 +1,20 @@
+version: '3.0'
+services:
+    webserver:
+      build: .
+      networks:
+         - frontend
+    mysql:
+       image: mysql
+       environment:
+         MYSQL_ROOTPASSWORD: admin
+         MYSQL_DATABASE: admin12
+         MYSQL_USER: admin
+         MYSQL_password: admin123
+       networks:
+        - backend
+networks:
+    frontend:
+       driver: bridge
+    backend:
+      driver: bridge
