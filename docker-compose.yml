@@ -9,17 +9,19 @@ services:
       networks:
          - frontend
       ports:
-         - "8086:8080"  # port-mapping
+         - "8082:8080"  # port-mapping
     mysql:  # database service
        image: mysql:latest
        volumes:
           - db_data:/var/lib/mysql # volume path
        restart: always
        environment:
-         MYSQL_ROOTPASSWORD: admin
+         MYSQL_ROOT_PASSWORD: admin
          MYSQL_DATABASE: admin12
          MYSQL_USER: admin
          MYSQL_password: admin123
+       ports:
+          - "3306:3306"
        networks:
         - backend
 networks:
