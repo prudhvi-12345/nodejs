@@ -1,0 +1,11 @@
+node () {
+    stage ("git-clone"){
+        git 'https://github.com/heroku/node-js-sample.git'
+    }
+    stage ("Build"){
+          sh 'npm install'
+    }
+}
+pre-requsites
+==============
+nodejs,npm
